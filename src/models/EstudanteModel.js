@@ -18,15 +18,15 @@ const getEstudantesById = async (id) => {
     return result.rows;
 };
 
-const createEstudante = async (name, numero_registro, avaliacao_id) => {
+const createEstudante = async (name, numero_registro, photo, avaliacao_id) => {
     const result = await pool.query(`
-        INSERT INTO estudante (name, numero_registro, avaliacao_id) VALUES ($1, $2, $3) RETURNING *`, [name, numero_registro, avaliacao_id]);
+        INSERT INTO estudante (name, numero_registro, photo, avaliacao_id) VALUES ($1, $2, $3, $4) RETURNING *`, [name, numero_registro, photo, avaliacao_id]);
     return result.rows[0];
 };
 
-const updateEstudantes = async ( id, name, numero_registro, avaliacao_id) => {
+const updateEstudantes = async ( id, name, numero_registro, avaliacao_id, photo) => {
     const result = await pool.query(`
-        UPDATE estudante SET name = $1, numero_registro = $2, avaliacao_id = $3  WHERE id = $4 RETURNING *`, [name, numero_registro, avaliacao_id, id]);
+        UPDATE estudante SET name = $1, numero_registro = $2, avaliacao_id = $3, photo = $4  WHERE id = $5 RETURNING *`, [name, numero_registro, avaliacao_id, photo, id]);
         if (result.rowCount === 0) {
             return { error: "Estudante não encontrado." };
         }

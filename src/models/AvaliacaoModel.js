@@ -10,18 +10,18 @@ const getAvaliacaosById = async (id) => {
     return result.rows[0];
 };
 
-const createAvaliacao = async (nota, professor, photo) => {
+const createAvaliacao = async (nota, professor) => {
     const result = await pool.query(
-        "INSERT INTO avaliacao (nota, professor, photo) VALUES ($1, $2, $3) RETURNING *",
-        [nota, professor, photo]
+        "INSERT INTO avaliacao (nota, professor) VALUES ($1, $2) RETURNING *",
+        [nota, professor]
     );
     return result.rows[0];
 };
 
-const updateAvaliacao = async (id, nota, professor, photo) => {
+const updateAvaliacao = async (id, nota, professor) => {
     const result = await pool.query(
-        "UPDATE avaliacao SET nota = $1, professor = $2, photo = $3 WHERE id = $4 RETURNING *",
-        [nota, professor, photo, id]
+        "UPDATE avaliacao SET nota = $1, professor = $2 WHERE id = $3 RETURNING *",
+        [nota, professor, id]
     );
     return result.rows[0]; 
 };

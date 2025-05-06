@@ -24,8 +24,7 @@ const getAvaliacaoById = async (req, res) => {
 const createAvaliacao = async (req, res) => {
     try {
         const { nota, professor } = req.body;
-        const photo = req.file ? req.file.filename : null;
-        const newAvaliacao = await AvaliacaoModel.createAvaliacao( nota, professor, photo );
+        const newAvaliacao = await AvaliacaoModel.createAvaliacao( nota, professor );
         res.status(201).json(newAvaliacao);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao criar avaliação.' });
@@ -35,8 +34,8 @@ const createAvaliacao = async (req, res) => {
 
 const updateAvaliacao = async (req, res) => {
     try {
-        const { nota, professor, photo } = req.body;  
-        const avaliacao = await AvaliacaoModel.updateAvaliacao(req.params.id, nota, professor, photo);
+        const { nota, professor } = req.body;  
+        const avaliacao = await AvaliacaoModel.updateAvaliacao(req.params.id, nota, professor);
         if (!avaliacao) {
             return res.status(404).json({ error: 'Avaliação não encontrada.' });
         }
