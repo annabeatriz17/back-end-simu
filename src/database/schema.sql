@@ -124,7 +124,7 @@ INSERT INTO avaliacao (nota, professor, materia, sala) VALUES
     (4, 'Carlos', 'Física', '105');
 
 INSERT INTO estudante (name_estudante, photo, avaliacao_id) VALUES
-    ('Fernanda', NULL, 1),
+    ('Fernanda', '/images/fernanda.jpg', 1),
     ('Bruna', NULL, 2),
     ('Daniela', NULL, 3),
     ('Gabriel', NULL, 4),
@@ -132,7 +132,7 @@ INSERT INTO estudante (name_estudante, photo, avaliacao_id) VALUES
     ('Leticia', NULL, 6),
     ('Gabriel', NULL, 7),
     ('Daniela', NULL, 8),
-    ('Juliana', NULL, 9),
+    ('Juliana', '/images/juliana.jpg', 9),
     ('Bruna', NULL, 10),
     ('Ana', NULL, 11),
     ('Daniela', NULL, 12),
@@ -179,7 +179,7 @@ INSERT INTO estudante (name_estudante, photo, avaliacao_id) VALUES
     ('Paulo', NULL, 53),
     ('Leticia', NULL, 54),
     ('Juliana', NULL, 55),
-    ('Fernanda', NULL, 56),
+    ('Fernanda', '/images/fernanda.jpg', 56),
     ('Paulo', NULL, 57),
     ('Roberto', NULL, 58),
     ('Juliana', NULL, 59),
